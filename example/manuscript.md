@@ -1,10 +1,8 @@
 ### TypeScript
 
-```typescript
-(function main(): void {
+<pre class="language-typescript line-numbers"><code class="language-typescript">(function main(): void {
   console.log("Hello world");
-})();
-```
+})();</code></pre>
 
 ### C
 

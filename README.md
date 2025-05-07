@@ -3,15 +3,16 @@
 [Prism](https://prismjs.com/), running within [JSDOM](https://github.com/jsdom/jsdom?tab=readme-ov-file#interfacing-with-the-nodejs-vm-module-using-getinternalvmcontext). Provides similar effects to [wooorm/refractor](https://github.com/wooorm/refractor) while offering broader compatibility with official Prism plugins.
 
 ```
-$ npm install git://github.com/u1f992/rehype-concentrator#v0.1.0
+$ npm install git://github.com/u1f992/rehype-spectroscope#v0.1.0
 ```
 
 ```javascript
 // @ts-check
 
-import { concentrator } from "../index.js";
+import { spectroscope } from "@u1f992/rehype-spectroscope";
 
 import { VFM } from "@vivliostyle/vfm";
+// import { concentrator } from "@u1f992/rehype-concentrator";
 
 /** @type {import('@vivliostyle/cli').VivliostyleConfigSchema} */
 const vivliostyleConfig = {
@@ -20,26 +21,20 @@ const vivliostyleConfig = {
   theme: "./css",
   entry: ["manuscript.md"],
   documentProcessor: (opts, meta) =>
-    ((p = VFM(opts, meta)) =>
-      !!process.env.TEST_CONCENTRATOR
-        ? p.use(concentrator, {
-            // Default options
-            selector:
-              'pre[class*="language-"] > code, ' +
-              'pre > code[class*="language-"], ' +
-              'pre[class*="lang-"] > code, ' +
-              'pre > code[class*="lang-"]',
-            filter: (elem) => true,
-          })
-        : p)(),
+    VFM(opts, meta)
+      // .use(concentrator)
+      .use(spectroscope, {
+        languages: ["c", "css", "typescript"],
+        plugins: ["line-numbers"],
+      }),
 };
 
 export default vivliostyleConfig;
 ```
 
-|      Before       |      After       |
-| :---------------: | :--------------: |
-| ![](./before.png) | ![](./after.png) |
+Use with line-numbers plugin:
+
+![](image.png)
 
 ## License
 

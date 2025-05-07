@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "main": "index.js",
   "scripts": {
-    "test": "cd example && npm run test:concentrator"
+    "test": "cd example && npm run preview"
   },
   "keywords": [],
   "author": "Koutaro Mukai",
