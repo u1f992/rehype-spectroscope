@@ -1,0 +1,21 @@
+{
+  "name": "@u1f992/rehype-spectroscope",
+  "version": "0.1.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "cd example && npm run test:concentrator"
+  },
+  "keywords": [],
+  "author": "Koutaro Mukai",
+  "license": "GPL-3.0",
+  "description": "Prism, running within JSDOM. Provides similar effects to wooorm/refractor while offering broader compatibility with official Prism plugins.",
+  "type": "module",
+  "dependencies": {
+    "jsdom": "^26.1.0",
+    "prismjs": "^1.30.0",
+    "rehype": "^11.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3"
+  }
+}
